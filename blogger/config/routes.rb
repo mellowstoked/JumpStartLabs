@@ -12,7 +12,9 @@ Blogger::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
     root to: 'articles#index'
   # Example resource route (maps HTTP verbs to controller actions automatically):
-     resources :articles
+     resources :articles do
+      resources :comments
+     end
 
   # Example resource route with options:
   #   resources :products do
