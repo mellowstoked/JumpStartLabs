@@ -4,6 +4,11 @@ class Article < ActiveRecord::Base
   has_many :taggings
   #taggings is the connection between Articles and Tags
   has_many :tags, through: :taggings
+  has_many :attachments
+  #part of the paperclip library
+  has_attached_file :image, styles: {medium: "700x300>", thumb: "300x300>"}
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
   #look back at /articles/_form.html.erb
   #need a method called tag_list to display related tags
   def tag_list
