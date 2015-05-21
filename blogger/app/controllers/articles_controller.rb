@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_filter :require_login, except: [:edit, :show, :index]
   include ArticlesHelper
   def index
     @articles = Article.all
